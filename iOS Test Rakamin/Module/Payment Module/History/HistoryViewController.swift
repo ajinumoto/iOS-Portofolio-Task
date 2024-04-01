@@ -41,6 +41,7 @@ class HistoryViewController: UIViewController, HistoryPresenterToViewProtocol {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
         setupUI()
         loadPaymentEntities()
     }

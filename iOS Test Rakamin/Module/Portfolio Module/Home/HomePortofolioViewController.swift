@@ -44,7 +44,7 @@ private extension HomePortofolioViewController {
         let stackView: UIStackView = {
             let stackView = UIStackView()
             stackView.axis = .vertical
-            stackView.distribution = .fill
+            stackView.distribution = .fillEqually
             stackView.translatesAutoresizingMaskIntoConstraints = false
             stackView.backgroundColor = .white
             
@@ -60,13 +60,6 @@ private extension HomePortofolioViewController {
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            pieView.widthAnchor.constraint(lessThanOrEqualToConstant: 300),
-            pieView.heightAnchor.constraint(lessThanOrEqualToConstant: 300),
-            barView.widthAnchor.constraint(lessThanOrEqualToConstant: 300),
-            barView.heightAnchor.constraint(lessThanOrEqualToConstant: 300)
         ])
     }
 }

@@ -27,6 +27,8 @@ class DetailPortofolioViewController: UIViewController, DetailPortofolioPresente
         setupView()
         setupTableView()
         updateUI()
+        transactionData = presenter?.pieModel ?? []
+
     }
     
     private func setupView() {

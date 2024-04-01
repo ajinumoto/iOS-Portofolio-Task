@@ -10,7 +10,7 @@ import UIKit
 class PaymentViewController: UIViewController, PaymentPresenterToViewProtocol {
     var presenter: PaymentViewToPresenterProtocol?
 
-    private let localStorage = UserDefaults.standard
+    var localStorage = UserDefaults.standard
 
     private var stackView: UIStackView!
     var balanceLabel: UILabel!
@@ -48,7 +48,6 @@ class PaymentViewController: UIViewController, PaymentPresenterToViewProtocol {
         super.loadView()
         attachComponents()
         addSubviews()
-        activateConstraints()
     }
 
     private func attachComponents() {
@@ -137,24 +136,28 @@ class PaymentViewController: UIViewController, PaymentPresenterToViewProtocol {
     }
 
     private func addSubviews() {
-        view.addSubview(stackView)
-        view.addSubview(balanceLabel)
-        view.addSubview(confirmationButton)
-    }
-
-    private func activateConstraints() {
+        stackView.addArrangedSubview(merchantNameLabel)
+        stackView.addArrangedSubview(transactionIDLabel)
+        stackView.addArrangedSubview(amountTitleLabel)
+        stackView.addArrangedSubview(amountLabel)
+        
+        let bottomStackView = initStackView()
+        bottomStackView.addArrangedSubview(balanceLabel)
+        bottomStackView.addArrangedSubview(confirmationButton)
+        
+        self.view.addSubview(stackView)
+        self.view.addSubview(bottomStackView)
+        
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 18),
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 18),
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -18),
-
-            balanceLabel.bottomAnchor.constraint(equalTo: confirmationButton.topAnchor, constant: -18),
-            balanceLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 18),
-            balanceLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -18),
-
-            confirmationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -18),
-            confirmationButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 18),
-            confirmationButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -18)
+            stackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 18),
+            stackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 18),
+            stackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -18)
+        ])
+        
+        NSLayoutConstraint.activate([
+            bottomStackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            bottomStackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 18),
+            bottomStackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -18)
         ])
     }
 }

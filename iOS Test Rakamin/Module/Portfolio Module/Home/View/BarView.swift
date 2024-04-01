@@ -46,7 +46,7 @@ class BarView: UIView {
         var barColors: [UIColor] = []
         let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         
-        var month = 1
+        var month = 0
         for data in barChartData?.month ?? [] {
             barEntry.append(BarChartDataEntry(x: Double(month), y: Double(data)))
             barColors.append(UIColor.randomColor())
@@ -60,5 +60,14 @@ class BarView: UIView {
         barChart.data = lineChartData
         
         barChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: monthNames)
+        barChart.xAxis.labelPosition = .topInside
+        barChart.xAxis.enabled = true
+        barChart.xAxis.labelTextColor = .black
+
+        barChart.rightAxis.labelPosition = .insideChart
+        barChart.rightAxis.enabled = true
+        barChart.rightAxis.labelTextColor = .black
+
+
     }
 }
