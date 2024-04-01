@@ -1,0 +1,6 @@
+framework module Pods_iOS_Test_Rakamin_iOS_Test_RakaminUITests {
+  umbrella header "Pods-iOS Test Rakamin-iOS Test RakaminUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

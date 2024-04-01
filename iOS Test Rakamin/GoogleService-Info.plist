@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyC38n2sa7C_9Lu1Kx6yXHdLRtKe9SyqzB4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>38842125597</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>id.co.ajinumoto.iOS-Test-Rakamin</string>
+	<key>PROJECT_ID</key>
+	<string>rakamin-test-17847</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rakamin-test-17847.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:38842125597:ios:9643ed82e2d6e62e7be5f4</string>
+</dict>
+</plist>
