@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Interactor
 class QRISHomeInteractor: QRISHomePresenterToInteractorProtocol {
     var presenter: QRISHomeInteractorToPresenterProtocol?
 }
+

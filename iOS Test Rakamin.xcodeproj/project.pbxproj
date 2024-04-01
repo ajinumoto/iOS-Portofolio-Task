@@ -75,6 +75,11 @@
 		CB753D0E2BBA579900669CE0 /* PieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB753D0D2BBA579900669CE0 /* PieView.swift */; };
 		CB753D1C2BBA8C0900669CE0 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB753D1B2BBA8C0900669CE0 /* BarView.swift */; };
 		CB753D1E2BBA954700669CE0 /* DetailPortofolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB753D1D2BBA954700669CE0 /* DetailPortofolioViewController.swift */; };
+		CB753D202BBACAEE00669CE0 /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB753D1F2BBACAEE00669CE0 /* Constans.swift */; };
+		CB753D222BBACBEB00669CE0 /* QRISHomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB753D212BBACBEB00669CE0 /* QRISHomeViewControllerTests.swift */; };
+		CB753D242BBADB6B00669CE0 /* QRScannerViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB753D232BBADB6B00669CE0 /* QRScannerViewControllerTests.swift */; };
+		CB753D262BBADD7400669CE0 /* PaymentViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB753D252BBADD7400669CE0 /* PaymentViewControllerTests.swift */; };
+		CB753D282BBADEC900669CE0 /* PaymentStatusViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB753D272BBADEC900669CE0 /* PaymentStatusViewControllerTests.swift */; };
 		D9360CE44ED2087F1ECBBF10 /* Pods_iOS_Test_RakaminTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E4E6969D4D2A0451EB60F08 /* Pods_iOS_Test_RakaminTests.framework */; };
 		F0C47B267DFF591C2387E55A /* Pods_iOS_Test_Rakamin_iOS_Test_RakaminUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27A92B125C7BE4A8291114F /* Pods_iOS_Test_Rakamin_iOS_Test_RakaminUITests.framework */; };
 /* End PBXBuildFile section */
@@ -176,6 +181,11 @@
 		CB753D0D2BBA579900669CE0 /* PieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieView.swift; sourceTree = "<group>"; };
 		CB753D1B2BBA8C0900669CE0 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		CB753D1D2BBA954700669CE0 /* DetailPortofolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPortofolioViewController.swift; sourceTree = "<group>"; };
+		CB753D1F2BBACAEE00669CE0 /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
+		CB753D212BBACBEB00669CE0 /* QRISHomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRISHomeViewControllerTests.swift; sourceTree = "<group>"; };
+		CB753D232BBADB6B00669CE0 /* QRScannerViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewControllerTests.swift; sourceTree = "<group>"; };
+		CB753D252BBADD7400669CE0 /* PaymentViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewControllerTests.swift; sourceTree = "<group>"; };
+		CB753D272BBADEC900669CE0 /* PaymentStatusViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentStatusViewControllerTests.swift; sourceTree = "<group>"; };
 		D27A92B125C7BE4A8291114F /* Pods_iOS_Test_Rakamin_iOS_Test_RakaminUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Test_Rakamin_iOS_Test_RakaminUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA235799922712B3C86687A6 /* Pods-iOS Test Rakamin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Test Rakamin.release.xcconfig"; path = "Target Support Files/Pods-iOS Test Rakamin/Pods-iOS Test Rakamin.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -261,6 +271,10 @@
 			isa = PBXGroup;
 			children = (
 				CB753C372BB7CF0C00669CE0 /* iOS_Test_RakaminTests.swift */,
+				CB753D212BBACBEB00669CE0 /* QRISHomeViewControllerTests.swift */,
+				CB753D232BBADB6B00669CE0 /* QRScannerViewControllerTests.swift */,
+				CB753D252BBADD7400669CE0 /* PaymentViewControllerTests.swift */,
+				CB753D272BBADEC900669CE0 /* PaymentStatusViewControllerTests.swift */,
 			);
 			path = "iOS Test RakaminTests";
 			sourceTree = "<group>";
@@ -289,6 +303,7 @@
 		CB753C512BB7D6E800669CE0 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CB753D1F2BBACAEE00669CE0 /* Constans.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1082,6 +1097,7 @@
 				CB753CAE2BB975A600669CE0 /* HistoryPresenter.swift in Sources */,
 				CB753CDF2BB9AEBC00669CE0 /* PromoResponse.swift in Sources */,
 				CB753CA32BB95A7600669CE0 /* PaymentEntity.swift in Sources */,
+				CB753D202BBACAEE00669CE0 /* Constans.swift in Sources */,
 				CB753C892BB92EF700669CE0 /* PaymentInteractor.swift in Sources */,
 				CB753C8F2BB92F6000669CE0 /* PaymentViewController.swift in Sources */,
 				CB753CE12BB9AF6C00669CE0 /* AuthorizationInterceptor.swift in Sources */,
@@ -1098,7 +1114,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB753D222BBACBEB00669CE0 /* QRISHomeViewControllerTests.swift in Sources */,
 				CB753C382BB7CF0C00669CE0 /* iOS_Test_RakaminTests.swift in Sources */,
+				CB753D262BBADD7400669CE0 /* PaymentViewControllerTests.swift in Sources */,
+				CB753D282BBADEC900669CE0 /* PaymentStatusViewControllerTests.swift in Sources */,
+				CB753D242BBADB6B00669CE0 /* QRScannerViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

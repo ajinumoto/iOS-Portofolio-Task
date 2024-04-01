@@ -13,87 +13,81 @@ class HomePromoViewController: UIViewController {
     private var carouselView: CarouselView?
     private let backgroundColor: UIColor = .white
     
-    private var emptyLable: UILabel!
+    private var emptyLabel: UILabel!
     
     private var carouselData = [CarouselView.CarouselData]() {
         didSet {
-            let isEmpty = carouselData.isEmpty
-            emptyLable.isHidden = !isEmpty
-            carouselView?.isHidden = isEmpty
-            carouselView?.configureView(with: carouselData)
+            updateUIForCarouselData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-        navigationController?.navigationBar.tintColor = UIColor.black
-        self.title = "Promo"
+        setupNavigationBar()
         presenter?.getPromos()
-        
     }
     
     override func loadView() {
         super.loadView()
-        
-        carouselView = CarouselView(delegate: self)
         setupUI()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        navigationController?.navigationBar.tintColor = .black
+        title = "Promo"
     }
     
-    
-}
-
-private extension HomePromoViewController {
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = backgroundColor
         
-        emptyLable = UILabel()
-        emptyLable.text = "Sedang memuat promo..."
-        emptyLable.textAlignment = .center
-        emptyLable.textColor = .black
-        emptyLable.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(emptyLable)
+        emptyLabel = UILabel()
+        emptyLabel.text = "Sedang memuat promo..."
+        emptyLabel.textAlignment = .center
+        emptyLabel.textColor = .black
+        emptyLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(emptyLabel)
         
         NSLayoutConstraint.activate([
-            emptyLable.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor),
-            emptyLable.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor)
+            emptyLabel.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            emptyLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
         ])
         
-        guard let carouselView = carouselView else { return }
-        view.addSubview(carouselView)
-        carouselView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            carouselView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
-            carouselView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            carouselView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            carouselView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
-        
-        
+        carouselView = CarouselView(delegate: self)
+        if let carouselView = carouselView {
+            view.addSubview(carouselView)
+            carouselView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                carouselView.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+                carouselView.leftAnchor.constraint(equalTo: view.leftAnchor),
+                carouselView.rightAnchor.constraint(equalTo: view.rightAnchor),
+                carouselView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
+        }
+    }
+    
+    private func updateUIForCarouselData() {
+        let isEmpty = carouselData.isEmpty
+        emptyLabel.isHidden = !isEmpty
+        carouselView?.isHidden = isEmpty
+        carouselView?.configureView(with: carouselData)
     }
 }
-
-// MARK: - CarouselViewDelegate
 
 extension HomePromoViewController: CarouselViewDelegate {
     func currentPageDidChange(to page: Int) {
+        // Handle current page change if needed
     }
 }
 
 extension HomePromoViewController: HomePromoPresenterToViewProtocol {
     func succesDelegate(promo: PromoResponse) {
-        let data = promo.promos?.map({ promo in
+        let data = promo.promos?.compactMap { promo in
             return CarouselView.CarouselData(imageURL: promo.imagesURL.toURL(), text: promo.name ?? "", detailURL: promo.detail.toURL())
-        })
+        } ?? []
         
-        carouselData = data ?? []
-        
+        carouselData = data
     }
     
     func errorDelegate() {
@@ -101,12 +95,11 @@ extension HomePromoViewController: HomePromoPresenterToViewProtocol {
     }
     
     func loadingStateHasChanged(isLoading: Bool) {
-        
+        // Handle loading state change if needed
     }
 }
 
 #Preview {
     var controller = HomePromoRouter.createModule()
-    
     return controller
 }
